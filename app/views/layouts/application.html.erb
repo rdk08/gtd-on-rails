@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title><%= content_for?(:title) ? yield(:title) : "GTD (on Rails)" %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default" id="navbar-menu">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><%= fa_icon('check-square-o') %></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <%= render 'layouts/navbar' %>
+            <ul class="nav navbar-nav navbar-right">
+              <%= yield :search_field %>
+              <%= render 'layouts/dropdown' %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Placeholder for pomodorro sessions -->
+      <%= render 'layouts/pomodorro_session' %>
+
+      <!-- Page header -->
+      <div id="header-section" class="page-header">
+        <h1 id="header" class="pull-left"><%= yield :header %></h1>
+        <%= yield :subnav %>
+      </div>
+
+      <!-- Page content -->
+      <%= render 'layouts/messages' %>
+      <%= yield :content %>
+    </div>
+
+  </body>
+</html>
+
+
+

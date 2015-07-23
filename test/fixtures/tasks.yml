@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  date: 2015-05-17
+  date_hour: MyString
+  date_due: false
+  have_to_do: false
+  project_id: 
+  state_id: 
+  category_id: 
+
+two:
+  description: MyString
+  date: 2015-05-17
+  date_hour: MyString
+  date_due: false
+  have_to_do: false
+  project_id: 
+  state_id: 
+  category_id: 

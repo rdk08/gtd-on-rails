@@ -1,0 +1,13 @@
+<div class="calendar-day">
+  <header class="calendar-header"><%= format_date_for_calendar(day) %></header> 
+  <br />
+
+  <% day.tasks[:to_be_done].each do |task| %>
+      <%= task_link_for_calendar(task) %>
+    <% end %>
+
+  <% day.tasks[:done].each do |task| %>
+    <%= task_link_for_calendar(task) %>
+  <% end %>
+
+</div>

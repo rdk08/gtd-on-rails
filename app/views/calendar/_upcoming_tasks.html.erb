@@ -1,0 +1,19 @@
+<table class="table">
+  <tbody>
+    <% @days.each do |day| %>
+      <tr>
+        <td>
+          <%= raw(format_date_for_upcoming_task(day)) %>
+        </td>
+        <td>
+          <% if day.tasks[:to_be_done] %>
+            <% day.tasks[:to_be_done].each do |task| %>
+              <%= link_to "#{task.date_hour} #{task.description}", task_path(task) %>
+              <br />
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,50 @@
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td><%= @task.description %></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><%= @task.task_state.display_name %></td>
+    </tr>
+    <tr>
+      <td>Has to be done?</td>
+      <td><% if @task.have_to %>Yes<% else %>No<% end %></td>
+    </tr>
+    <% if @task.date %>
+    <tr>
+      <td>Date</td>
+      <td><%= fa_icon('arrow-circle-o-right') + raw("&nbsp;") if @task.date_due %>
+      <% if @task.date_hour != "" %> <%= @task.date_hour %> <% end %>
+      <%= format_date(@task.date) %></td>
+    </tr>
+    <% end %>
+    <% if @task.project %>
+    <tr>
+      <td>Project</td>
+      <td><%= @task.project.name if @task.project %></td>
+    </tr>
+    <% end %>
+    <% if @task.pomodorro_sessions %>
+    <tr>
+      <td>Pomodorro sessions</td>
+      <td><%= @task.pomodorro_sessions %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>Created at</td>
+      <td><%= @task.created_at.to_s(:db) %></td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to fa_icon('pencil') + ' Edit', edit_task_path(@task), :class => 'btn btn-default' %>
+<%= link_to fa_icon('check') + ' Complete', complete_task_path(@task), :class => 'btn btn-default' %>
+<%= link_to fa_icon('times') + ' Destroy', task_path(@task), 
+                                           :method => 'delete',
+                                           :data => { :confirm => 'Are you sure?' },
+                                           :class => 'btn btn-default' %>

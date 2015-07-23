@@ -1,0 +1,46 @@
+<%= form_for @project, :html => { :class => "form-horizontal project" } do |f| %>
+
+    <% if @project.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.text_field :name, :class => 'form-control input-md' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.text_field :description, :class => 'form-control input-md' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :project_state_id, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= collection_select :project, :project_state_id, ProjectState.all, :id, :state_name, {:include_blank => ''}, {:class => 'form-control'} %>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="col-md-2 control-label">
+    </div>
+    <div class="col-md-4">
+      <%= f.submit nil, :class => 'btn btn-primary ' %>
+    </div>
+  </div>
+
+<% end %>
+

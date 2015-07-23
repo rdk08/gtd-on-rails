@@ -1,0 +1,14 @@
+@import 'shared/colors';
+
+.task-complete-check-box {
+  color: white;
+  padding-left: 1px;
+  padding-right: 1px;
+  width: 22px;
+}
+
+.task-complete-check-box:hover, .task-complete-check-box:hover, .task-complete-check-box:focus, .task-complete-check-box.focus, .task-complete-check-box:active, .task-complete-check-box.active {
+  color: #333;
+  background-color: $snowWhite;
+}
+

@@ -1,0 +1,72 @@
+// framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-datetimepicker";
+@import "shared/colors";
+
+// Overriding Bootstrap
+
+// layout
+
+body {
+  .container {
+    width: 80%;
+  }
+
+  #content {
+    padding-top: 60px;
+  }
+}
+
+nav#navbar-menu {
+    margin-top: 20px;
+}
+
+h1#header {
+    margin-top: 0px;
+}
+
+div#header-section {
+  padding-bottom: 55px;
+}
+
+// tables
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: $snowWhite;
+}
+
+.table > tbody > tr >td {
+  border-bottom: 1px solid $almostWhite;
+  border-top: 1px solid $almostWhite;
+}
+
+// navigation pills
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: $midDarkBlue;
+  background-color: $ligthGrey;
+}
+
+.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+  color: $coldBlue;
+  background-color: white;
+}
+
+span.badge {
+  color: $midGrey;
+  background-color: $almostWhite;
+}
+
+// other
+
+span.line-through {
+  text-decoration:line-through;
+}
+
+a { color: $darkBlue; }
+
+a:hover, a:focus {
+  color: $midDarkBlue;
+  text-decoration: underline;
+}

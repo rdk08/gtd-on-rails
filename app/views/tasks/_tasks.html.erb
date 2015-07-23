@@ -1,0 +1,58 @@
+<% if tasks.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Description</th>
+      <% if options.include?(:date_info) %><th>Date</th><% end %>
+      <% if options.include?(:project_info) %><th>Project</th><% end %>
+      <th>State</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr>
+          <td>
+            <% if task.state != :completed %>
+              <%= link_to fa_icon('check'), complete_task_path(task), :class => 'task-complete-check-box btn btn-default btn-xs' %>
+            <% end %>
+          </td>
+
+          <td><%= link_to_task(task) %></td>
+
+        <% if options.include?(:date_info) %> 
+          <td>
+            <%= fa_icon('arrow-circle-o-right') + raw("&nbsp") if task.date_due %>
+            <%= format_date(task.date) if task.date %>
+          </td> 
+        <% end %>
+
+        <% if options.include?(:project_info) %> 
+          <td><%= link_to_project(task.project) if task.project %></td> 
+        <% end %>
+
+          <td><%= task.task_state.display_name %></td>
+
+          <td>
+          <% if task.state != :completed %>
+            <button type="button" data-task-id="<%= task.id %>" class="pomodorro-session-create btn btn-default btn-xs"><%= fa_icon('clock-o') %></button>
+          <% end %>
+
+          <%= link_to fa_icon('pencil'), edit_task_path(task), :class => 'btn btn-default btn-xs' %>
+
+          <%= link_to fa_icon('times'),
+                      task_path(task),
+                      :method => :delete,
+                      :data => { :confirm => 'Are you sure?' },
+                      :class => 'btn btn-xs btn-default' %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+Clear
+<br>
+<br>
+<% end %>

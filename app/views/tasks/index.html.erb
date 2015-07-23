@@ -1,0 +1,11 @@
+<% content_for :header do %>
+  Tasks
+<% end %>
+
+<% content_for :subnav do %>
+  <%= render 'subnav' %>
+<% end %>
+
+<% content_for :content do %>
+  <%= render :partial => 'tasks', locals: {tasks: @tasks, options: [:date_info, :project_info] } %>
+<% end %>

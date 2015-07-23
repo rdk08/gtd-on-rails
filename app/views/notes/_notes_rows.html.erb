@@ -1,0 +1,19 @@
+<% notes ||= @notes %>
+<% if notes.any? %>
+  <% notes.each do |note| %>
+    <tr>
+      <td><%= link_to note.title, note_path(note) %></td>
+      <td><%= simple_format(note.body.truncate(50)) %></td>
+      <td><%= note.created_at.to_s(:db) %></td>
+      <td>
+        <%= link_to fa_icon('pencil'), edit_note_path(note), :class => 'btn btn-default btn-xs' %>
+
+        <%= link_to fa_icon('times'),
+                    note_path(note),
+                    :method => :delete,
+                    :data => { :confirm => 'Are you sure?' },
+                    :class => 'btn btn-xs btn-default' %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

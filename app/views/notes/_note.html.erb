@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td></td>
+      <td><b><%= @note.title %></b><span class="float-right"><%= @note.updated_at.to_s(:db) %></span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><br /><%= simple_format(@note.body) %></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to fa_icon('pencil') + ' Edit', edit_note_path(@note), :class => 'btn btn-default' %>
+
+<%= link_to fa_icon('times') + ' Destroy', note_path(@note),
+                                          :method => 'delete',
+                                          :data => { :confirm => 'Are you sure?' },
+                                          :class => 'btn btn-default' %>

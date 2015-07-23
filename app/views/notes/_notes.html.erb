@@ -1,0 +1,19 @@
+<% if @notes.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render :partial => 'notes_rows', locals: {notes: @notes} %>
+  </tbody>
+</table>
+<% else %>
+Clear
+<br>
+<br>
+<% end %>

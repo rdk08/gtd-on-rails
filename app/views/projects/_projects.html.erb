@@ -1,0 +1,40 @@
+<% if projects.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>State</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% projects.each do |project| %>
+      <tr>
+        <td><%= link_to_project project %></td>
+        <td><%= project.description %></td>
+        <td><%= project.state_name %></td>
+        <td><%= project.created_at.to_s(:db) %></td>
+        <td>
+          <%= link_to fa_icon('pencil'), edit_project_path(project), :class => 'btn btn-default btn-xs' %>
+
+          <% if project.state != :completed %>
+            <%= link_to fa_icon('check'), complete_project_path(project), :class => 'btn btn-default btn-xs' %>
+
+            <%= link_to fa_icon('times'),
+                        project_path(project),
+                        :method => :delete,
+                        :data => { :confirm => 'Are you sure?' },
+                        :class => 'btn btn-default btn-xs' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+Clear
+<br>
+<br>
+<% end %>

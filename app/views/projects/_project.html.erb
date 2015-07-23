@@ -1,0 +1,33 @@
+<h3 class="header"><%= @project.name %></h3>
+
+<br />
+
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td><%= @project.description %></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><%= @project.project_state.display_name %></td>
+    </tr>
+    <tr>
+      <td>Created at</td>
+      <td><%= @project.created_at.to_s(:db) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= render :partial => 'tasks/tasks', locals: {tasks: tasks,  options: options } %>
+
+<br />
+
+<%= link_to fa_icon('pencil') + ' Edit', edit_project_path(@project), :class => 'btn btn-default' %>
+
+<%= link_to fa_icon('check') + ' Complete', complete_project_path(@project), :class => 'btn btn-default' %>
+
+<%= link_to fa_icon('times') + ' Destroy', project_path(@project),
+                                          :method => 'delete',
+                                          :data => { :confirm => 'Are you sure?' },
+                                          :class => 'btn btn-default' %>

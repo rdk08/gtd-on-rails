@@ -1,0 +1,19 @@
+<% content_for :header do %>
+  Calendar
+<% end %>
+
+<% content_for :subnav do %>
+  <%= render 'subnav' %>
+<% end %>
+
+<% content_for :content do %>
+  <%= link_to (fa_icon "chevron-left") + raw("&nbsp; previous week"), calendar_week_path(:date => @week[:prev]), :class => 'calendar-nav-left' %>
+  <%= link_to raw("next week &nbsp;") + (fa_icon "chevron-right"), calendar_week_path(:date => @week[:next]), :class => 'calendar-nav-right' %>
+  <br />
+  <br />
+
+  <% @days.each do |day| %>
+    <%= render :partial => 'calendar_day', locals: {day: day} %>
+  <% end %>
+
+<% end %>

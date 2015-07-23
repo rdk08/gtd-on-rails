@@ -1,0 +1,15 @@
+<% content_for :header do %>
+  Notes
+<% end %>
+
+<% content_for :search_field do %>
+  <%= render 'search_field' %>
+<% end %>
+
+<% content_for :subnav do %>
+  <%= render 'subnav' %>
+<% end %>
+
+<% content_for :content do %>
+  <%= render :partial => 'notes', :locals => { notes: @notes } %>
+<% end %>

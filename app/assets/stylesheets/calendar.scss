@@ -1,0 +1,49 @@
+@import "shared/colors";
+
+.btn-calendar {
+  white-space: normal;
+  text-align: left;
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+div.calendar-day {
+  float: left;
+  width: 13.48%;
+  height: 420px;
+  padding: 3px;
+  margin: 0.4%;
+  border: 1px solid #DDD;
+  -moz-border-radius: 15px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.calendar-header {
+  text-align: center;
+  border-bottom: 1px solid #DDD;
+}
+
+.calendar-nav-left {
+  float: left;
+  margin-left: 10px;
+  color: #777;
+}
+
+.calendar-nav-right {
+  float: right; 
+  color: #777;
+  margin-right: 10px;
+}
+
+.btn-to-be-done {
+  color: #333;
+  background-color: #EAEAEA;
+  border: 0px;
+}
+
+.btn-to-be-done:hover {
+  color: #222;
+  background-color: #F4F4F4;
+  border: 0px;
+}

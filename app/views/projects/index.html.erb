@@ -1,0 +1,11 @@
+<% content_for :header do %>
+  Projects
+<% end %>
+
+<% content_for :subnav do %>
+  <%= render 'subnav' %>
+<% end %>
+
+<% content_for :content do %>
+  <%= render :partial => 'projects', locals: {projects: @projects, options: [] } %>
+<% end %>
