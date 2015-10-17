@@ -36,6 +36,20 @@ div.calendar-day {
   margin-right: 10px;
 }
 
+.btn-add-new-task {
+  color: #A3A3A3;
+  background-color: #FFFFFF;
+  border: 1px dashed #D8D8D8;
+  text-align: center;
+}
+
+.btn-add-new-task:hover {
+  color: #909090;
+  background-color: #FFFFFF;
+  border: 1px dashed #C5C5C5;
+  text-align: center;
+}
+
 .btn-to-be-done {
   color: #333;
   background-color: #EAEAEA;

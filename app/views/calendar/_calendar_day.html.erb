@@ -1,5 +1,5 @@
 <div class="calendar-day">
-  <header class="calendar-header"><%= format_date_for_calendar(day) %></header> 
+  <header class="calendar-header"><%= format_date_for_calendar(day) %></header>
   <br />
 
   <% day.tasks[:to_be_done].each do |task| %>
@@ -9,5 +9,8 @@
   <% day.tasks[:done].each do |task| %>
     <%= task_link_for_calendar(task) %>
   <% end %>
+
+
+  <%= link_to " + ", new_task_with_date_path(day.date.to_s(:db)), :class => "btn btn-calendar btn-xs btn-add-new-task" %>
 
 </div>

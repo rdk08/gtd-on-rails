@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @task = params[:date] ? Task.new(date: params[:date]) : Task.new
   end
 
   def edit
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @task.destroy!
     flash[:notice] = 'Task was deleted.'

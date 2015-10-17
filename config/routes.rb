@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   resources :notes
   resources :sessions, only: [:new, :create, :destroy]
   resources :breaks, only: [:create, :update, :destroy]
-  
+
   # Custom paths
-  
+
   get 'login', to: 'sessions#new', as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
-  
+
+  get 'tasks/new?date=:date' => 'tasks#new', as: :new_task_with_date
   get 'tasks?view=have_to' => 'tasks#index', as: :tasks_have_to
   get 'tasks?view=someday_maybe' => 'tasks#index', as: :tasks_someday_maybe
   get 'tasks?view=all' => 'tasks#index', as: :tasks_all
