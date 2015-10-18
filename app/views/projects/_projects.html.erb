@@ -3,7 +3,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>State</th>
+      <th>Progress</th>
+      <th>Deadline</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -12,7 +13,13 @@
     <% projects.each do |project| %>
       <tr>
         <td><%= link_to_project project %></td>
-        <td><%= project.state_name %></td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.percent_done %>%;">
+            </div>
+          </div>
+        </td>
+        <td><%= project.hard_deadline %></td>
         <td><%= project.created_at.to_s(:db) %></td>
         <td>
           <%= link_to fa_icon('pencil'), edit_project_path(project), :class => 'btn btn-default btn-xs' %>

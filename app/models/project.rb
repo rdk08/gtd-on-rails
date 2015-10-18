@@ -13,23 +13,27 @@ class Project < ActiveRecord::Base
   def state=(symbol)
     self.project_state = ProjectState.get_object(symbol)
   end
-  
+
   def complete!
     self.state = :completed
     self.completed_at = Time.zone.now
     save!
   end
 
+  def percent_done
+    100 * (tasks.completed.count.to_f / tasks.count.to_f)
+  end
+
   default_scope { order(name: :asc) }
-  scope :active, lambda { 
+  scope :active, lambda {
     joins(:project_state).
     where("project_states.symbol is ?", :active)
   }
-  scope :freezed, lambda { 
+  scope :freezed, lambda {
     joins(:project_state).
     where("project_states.symbol is ?", :freezed)
   }
-  scope :completed, lambda { 
+  scope :completed, lambda {
     joins(:project_state).
     where("project_states.symbol is ?", :completed)
   }
