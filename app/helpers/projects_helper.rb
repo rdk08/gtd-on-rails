@@ -1,12 +1,12 @@
 module ProjectsHelper
-  
+
   def get_projects_for(view)
     case view
       when "active" then Project.not_completed.active
       when "freezed" then Project.not_completed.freezed
       when "all" then Project.not_completed.all
       when "completed" then Project.completed
-      else Project.not_completed.all
+      else Project.not_completed.active
     end
   end
 

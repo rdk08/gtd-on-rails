@@ -6,7 +6,7 @@ module TasksHelper
       when "someday_maybe" then Task.not_completed.someday_maybe
       when "all" then Task.not_completed.all
       when "completed" then Task.completed
-      else Task.not_completed.all
+      else Task.not_completed.have_to
     end
   end
 

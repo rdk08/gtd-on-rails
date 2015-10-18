@@ -1,8 +1,8 @@
 <nav class="subnav pull-right">
   <ul class="nav nav-pills" role="tablist">
-    <%= subnav_link_with_counter "Active", projects_active_path, counter(@projects) %>
+    <%= subnav_link_default_with_counter "Active", projects_active_path, counter(@projects), match: '/projects' %>
     <%= subnav_link_with_counter "Freezed", projects_freezed_path, counter(@projects) %>
-    <%= subnav_link_default "All", projects_all_path, match: '/projects' %>
+    <%= subnav_link_with_counter "All", projects_all_path, counter(@projects) %>
     <%= subnav_link "Completed", projects_completed_path %>
   </ul>
 </nav>

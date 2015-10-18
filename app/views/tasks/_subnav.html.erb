@@ -1,8 +1,8 @@
 <nav class="subnav pull-right">
   <ul class="nav nav-pills" role="tablist">
-    <%= subnav_link_with_counter "Have to", tasks_have_to_path, counter(@tasks) %>
+    <%= subnav_link_default_with_counter "Have to", tasks_have_to_path, counter(@tasks), match: '/tasks' %>
     <%= subnav_link_with_counter "Someday", tasks_someday_maybe_path, counter(@tasks) %>
-    <%= subnav_link_default "All", tasks_all_path, match: '/tasks' %>
+    <%= subnav_link_with_counter "All", tasks_all_path, counter(@tasks) %>
     <%= subnav_link "Completed", tasks_completed_path %>
   </ul>
 </nav>
