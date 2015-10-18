@@ -21,7 +21,11 @@ class Project < ActiveRecord::Base
   end
 
   def percent_done
-    100 * (tasks.completed.count.to_f / tasks.count.to_f)
+    if tasks.any?
+      100 * (tasks.completed.count.to_f / tasks.count.to_f)
+    else
+      0.0
+    end
   end
 
   def remaining_tasks

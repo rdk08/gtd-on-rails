@@ -1,13 +1,15 @@
-require 'search_term' 
+require 'search_term'
 
 class NotesController < ApplicationController
   include ApplicationHelper
+  include NotesHelper
 
   before_action :set_note, only: [:destroy, :update, :edit, :show]
   before_action :set_last_visited, only: [:show, :index]
 
   def index
-    @notes = Note.all
+    view = params[:view] || session[:view]
+    @notes = get_notes_for(view)
   end
 
   def create
@@ -19,7 +21,7 @@ class NotesController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     render :show
   end

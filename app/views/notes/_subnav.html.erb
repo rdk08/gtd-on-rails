@@ -1,5 +1,6 @@
 <nav class="subnav pull-right">
   <ul class="nav nav-pills" role="tablist">
-    <%= subnav_link_default "All", notes_path, match: '/notes' %>
+    <%= subnav_link_default "Inbox", notes_inbox_path, match: '/notes' %>
+    <%= subnav_link "Archived", notes_archived_path %>
   </ul>
 </nav>
