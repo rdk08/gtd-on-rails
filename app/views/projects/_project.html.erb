@@ -1,12 +1,20 @@
 <h3 class="header"><%= @project.name %></h3>
-
 <br />
-
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= @project.percent_done %>%;">
+    <%= @project.percent_done.to_i %>%
+  </div>
+</div>
+<br />
 <table class="table table-striped">
   <tbody>
     <tr>
       <td>Goal description</td>
       <td><%= @project.goal_description %></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><%= @project.project_state.display_name %></td>
     </tr>
     <tr>
       <td>Soft deadline</td>
@@ -18,9 +26,8 @@
       <td><%= @project.hard_deadline %></td>
     </tr>
     <tr>
-    <tr>
-      <td>State</td>
-      <td><%= @project.project_state.display_name %></td>
+      <td>Remaining tasks</td>
+      <td><%= @project.remaining_tasks %></td>
     </tr>
     <tr>
       <td>Created at</td>

@@ -24,6 +24,10 @@ class Project < ActiveRecord::Base
     100 * (tasks.completed.count.to_f / tasks.count.to_f)
   end
 
+  def remaining_tasks
+    tasks.count - tasks.completed.count
+  end
+
   default_scope { order(name: :asc) }
   scope :active, lambda {
     joins(:project_state).
