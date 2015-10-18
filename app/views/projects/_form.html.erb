@@ -22,9 +22,21 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :description, :class => 'col-md-2 control-label' %>
+    <%= f.label :goal_description, :class => 'col-md-2 control-label' %>
     <div class="col-md-4">
-      <%= f.text_field :description, :class => 'form-control input-md' %>
+      <%= f.text_field :goal_description, :class => 'form-control input-md' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :soft_deadline, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.text_field :soft_deadline, :id => 'project-soft-deadline', :class => 'form-control input-md' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hard_deadline, :class => 'col-md-2 control-label' %>
+    <div class="col-md-4">
+      <%= f.text_field :hard_deadline, :id => 'project-hard-deadline', :class => 'form-control input-md' %>
     </div>
   </div>
   <div class="form-group">

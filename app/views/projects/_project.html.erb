@@ -5,9 +5,19 @@
 <table class="table table-striped">
   <tbody>
     <tr>
-      <td>Description</td>
-      <td><%= @project.description %></td>
+      <td>Goal description</td>
+      <td><%= @project.goal_description %></td>
     </tr>
+    <tr>
+      <td>Soft deadline</td>
+      <td><%= @project.soft_deadline %></td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Hard deadline</td>
+      <td><%= @project.hard_deadline %></td>
+    </tr>
+    <tr>
     <tr>
       <td>State</td>
       <td><%= @project.project_state.display_name %></td>

@@ -1,14 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
   goal_description: MyString
   soft_deadline: 2015-05-17
   hard_deadline: 2015-05-17
   state_id: 
 
 two:
-  description: MyString
   goal_description: MyString
   soft_deadline: 2015-05-17
   hard_deadline: 2015-05-17

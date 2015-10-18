@@ -3,7 +3,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>State</th>
       <th>Created at</th>
       <th>Actions</th>
@@ -13,7 +12,6 @@
     <% projects.each do |project| %>
       <tr>
         <td><%= link_to_project project %></td>
-        <td><%= project.description %></td>
         <td><%= project.state_name %></td>
         <td><%= project.created_at.to_s(:db) %></td>
         <td>
