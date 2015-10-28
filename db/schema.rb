@@ -11,13 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722101356) do
+ActiveRecord::Schema.define(version: 20151028181941) do
+
+  create_table "goals", force: :cascade do |t|
+    t.text     "description"
+    t.boolean  "achieved"
+    t.datetime "achieved_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "archived"
   end
 
   create_table "project_states", force: :cascade do |t|
@@ -28,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150722101356) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "description"
     t.string   "goal_description"
     t.date     "soft_deadline"
     t.date     "hard_deadline"
@@ -61,8 +75,10 @@ ActiveRecord::Schema.define(version: 20150722101356) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "pomodorro_sessions"
+    t.integer  "list_id"
   end
 
+  add_index "tasks", ["list_id"], name: "index_tasks_on_list_id", unique: true
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
   add_index "tasks", ["task_state_id"], name: "index_tasks_on_task_state_id"
 

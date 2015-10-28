@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   resources :tasks
+  resources :lists
   resources :projects
   resources :notes
   resources :sessions, only: [:new, :create, :destroy]
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
   get 'calendar/week?date=:date' => 'calendar#view'
   get 'calendar/upcoming_tasks' => 'calendar#upcoming_tasks'
 
+  get 'notes?view=inbox' => 'notes#index', as: :notes_inbox
+  get 'notes?view=archived' => 'notes#index', as: :notes_archived
   post 'notes/search' => 'notes#search'
 
   get 'pomodorro_session' => 'pomodorro_session#show'
