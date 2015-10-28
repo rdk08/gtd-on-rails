@@ -31,7 +31,11 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy!
     flash[:notice] = 'Project was deleted.'
-    redirect_to last_visited || {:action => 'index'}
+    if destroying_displayed_resource?
+      redirect_to :action => 'index'
+    else
+      redirect_to last_visited || { :action => 'index' }
+    end
   end
 
   def complete

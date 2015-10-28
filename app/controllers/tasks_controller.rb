@@ -69,7 +69,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:description, :have_to, :task_state_id, :project_id, :date, :date_hour, :date_due, :pomodorro_sessions, :additional_info)
+      params.require(:task).permit(:description, :have_to, :task_state_id, :project_id, :list_id, :date, :date_hour, :date_due, :pomodorro_sessions, :additional_info)
     end
 
     def set_task

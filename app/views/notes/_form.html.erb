@@ -24,12 +24,12 @@
   <div class="form-group">
     <%= f.label :body, :class => 'col-md-2 control-label' %>
     <div class="col-md-4">
-      <%= f.text_area :body, :class => 'form-control input-md' %>
+      <%= f.text_area :body, :class => 'form-control input-md note-body' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :type, :class => 'col-md-2 control-label' %>
-    <div class="col-xs-1">
+    <div class="col-md-4">
       <%= f.radio_button :archived, false, :checked => 'checked', :class => 'input-md' %> Inbox<br />
       <%= f.radio_button :archived, true, :class => 'input-md' %> Archived
     </div>

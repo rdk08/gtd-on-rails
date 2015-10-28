@@ -3,8 +3,10 @@ class Task < ActiveRecord::Base
   validates :task_state_id, :presence => true
 
   before_save :align_state_data
+  before_validation :set_default_state
 
   belongs_to :project
+  belongs_to :list
   belongs_to :category
   belongs_to :task_state
 
@@ -53,7 +55,7 @@ class Task < ActiveRecord::Base
     where("task_states.symbol IS NOT ?", :completed).
     where("tasks.date >= ? and tasks.date <= ?", from, to)
   }
-  scope :completed, lambda { 
+  scope :completed, lambda {
     joins(:task_state).
     where("task_states.symbol IS ?", :completed)
   }
@@ -70,5 +72,9 @@ class Task < ActiveRecord::Base
       else
         self.completed_at = nil
       end
+    end
+
+    def set_default_state
+      self.state = :pending if self.task_state_id == nil
     end
 end

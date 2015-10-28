@@ -40,7 +40,7 @@ class NotesController < ApplicationController
   def update
     if @note.update(note_params)
       flash[:notice] = 'Note was successfully updated.'
-      redirect_to :action => 'index'
+      redirect_to last_visited || { :action => 'index' }
     else
       render :edit
     end
@@ -70,7 +70,7 @@ class NotesController < ApplicationController
     end
 
     def note_params
-      params.require(:note).permit(:title, :body)
+      params.require(:note).permit(:title, :body, :archived)
     end
 
     def search_params
